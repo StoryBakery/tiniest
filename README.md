@@ -36,6 +36,29 @@ No installation needed!
 other. Drop them into your `lib` folder, keep the ones you need, and start using
 `tiniest` right away :)
 
+### pesde
+
+`tiniest` can also be installed from the pesde index:
+
+```sh
+pesde add storybakery/tiniest
+```
+
+For maintainers, the publish flow is:
+
+```sh
+pesde auth login
+pesde x jiwonz/multitarget -- build --all --output dist --build-files src --yes
+cd dist
+pesde publish --dry-run
+pesde publish
+```
+
+This project uses [`jiwonz/multitarget`](https://github.com/jiwonz/pesde-multitarget)
+to build and publish all three targets (`luau`, `lune`, `roblox`) together.
+`target.lib` points to `src/tiniest_for_pesde.luau`, which routes to the
+runtime-specific bundle (`tiniest_for_lune`, `tiniest_for_roblox`, or core
+`tiniest`) based on `LUA_ENV`.
 
 ## Usage
 

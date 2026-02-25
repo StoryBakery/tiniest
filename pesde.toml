@@ -1,0 +1,20 @@
+name = "storybakery/tiniest"
+version = "0.1.0"
+description = "Minimal, portable testing libraries for Luau."
+authors = ["dphfox"]
+repository = "https://github.com/StoryBakery/tiniest"
+license = "BSD-3-Clause"
+includes = [
+	"pesde.toml",
+	"README.md",
+	"LICENSE",
+	"src/**",
+]
+
+[target]
+environment = "lune"
+lib = "src/tiniest_for_pesde.luau"
+build_files = ["src"]
+
+[indices]
+default = "https://github.com/pesde-pkg/index"
