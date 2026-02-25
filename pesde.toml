@@ -4,16 +4,11 @@ description = "Minimal, portable testing libraries for Luau."
 authors = ["dphfox"]
 repository = "https://github.com/StoryBakery/tiniest"
 license = "BSD-3-Clause"
-includes = [
-	"pesde.toml",
-	"README.md",
-	"LICENSE",
-	"src/**",
-]
+includes = ["pesde.toml", "README.md", "LICENSE", "src/**"]
 
 [target]
-environment = "lune"
-lib = "src/tiniest_for_pesde.luau"
+environment = "roblox"
+lib = "src/tiniest_for_roblox.luau"
 build_files = ["src"]
 
 [indices]

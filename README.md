@@ -48,17 +48,33 @@ For maintainers, the publish flow is:
 
 ```sh
 pesde auth login
-pesde x jiwonz/multitarget -- build --all --output dist --build-files src --yes
-cd dist
+
+# 1) Lune target
+# [target]
+# environment = "lune"
+# lib = "src/tiniest_for_lune.luau"
+pesde publish --dry-run
+pesde publish
+
+# 2) Luau target (same name + same version)
+# [target]
+# environment = "luau"
+# lib = "src/tiniest.luau"
+pesde publish --dry-run
+pesde publish
+
+# 3) Roblox target (same name + same version)
+# [target]
+# environment = "roblox"
+# lib = "src/tiniest_for_roblox.luau"
+# build_files = ["src"]
 pesde publish --dry-run
 pesde publish
 ```
 
-This project uses [`jiwonz/multitarget`](https://github.com/jiwonz/pesde-multitarget)
-to build and publish all three targets (`luau`, `lune`, `roblox`) together.
-`target.lib` points to `src/tiniest_for_pesde.luau`, which routes to the
-runtime-specific bundle (`tiniest_for_lune`, `tiniest_for_roblox`, or core
-`tiniest`) based on `LUA_ENV`.
+As of February 25, 2026, `pesde x jiwonz/multitarget` currently fails in this
+setup with `could not resolve child component "GreenTea"`, so this repository
+uses the sequential target publish flow above instead.
 
 ## Usage
 
